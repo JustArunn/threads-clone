@@ -50,7 +50,7 @@ public class PostService {
         ).collect(Collectors.toList());
     }
 
-    public PostDTO createPost(CreatePostRequest request, Authentication authentication){
+    public String createPost(CreatePostRequest request, Authentication authentication){
 
         Optional<UserEntity> user = userRepository.findByUsername(authentication.getName());
 
@@ -71,6 +71,6 @@ public class PostService {
 
         PostEntity savedPost = postRepository.save(post);
 
-        return objectMapper.convertValue(savedPost, PostDTO.class);
+        return "Post created successfully";
     }
 }

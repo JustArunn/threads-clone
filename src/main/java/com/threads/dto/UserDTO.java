@@ -16,6 +16,10 @@ public class UserDTO {
     private String lastName;
     private String username;
     private List<PostDTO> posts;
+    private Long followersCount;
+    private Long followingsCount;
+    private List<FollowDTO>followers;
+    private List<FollowDTO>followings;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

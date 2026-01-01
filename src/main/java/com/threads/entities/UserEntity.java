@@ -27,10 +27,19 @@ public class UserEntity {
     private String username;
     @Column(name = "password",nullable = false)
     private String password;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PostEntity> posts;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CommentEntity>comments;
+
+    @OneToMany(mappedBy = "follower", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<FollowEntity> following;
+
+    @OneToMany(mappedBy = "following", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<FollowEntity> followers;
+
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }
